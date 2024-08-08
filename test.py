@@ -14,5 +14,5 @@ for i in range(len(data)):
 
 
 input()
-response = requests.get(f"{BASE}video/6")
+response = requests.get(f"{BASE}video/2")
 print(response.json())

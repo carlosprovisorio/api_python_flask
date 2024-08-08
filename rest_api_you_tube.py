@@ -42,8 +42,7 @@ class Video(Resource):
     @marshal_with(resource_fields)
     def put(self, video_id):
         args = video_put_args.parse_args()
-        result = VideoModel.query.filter_by(id=video_id).first()
-        if result:
+        if result := VideoModel.query.filter_by(id=video_id).first():
             abort(409, message="Video id taken...")
         video = VideoModel(
             id=video_id, name=args["name"], views=args["views"], likes=args["likes"]
